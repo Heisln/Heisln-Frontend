@@ -9,6 +9,6 @@ COPY frontend/ /app/
 FROM build AS prod
 RUN ionic build --prod
 
-FROM nginx:1.18-alpine
+FROM nginx:1.21-alpine
 COPY nginx_default_site.conf /etc/nginx/conf.d/default.conf
 COPY --from=prod /app/www/ /usr/share/nginx/html/
